@@ -1,5 +1,5 @@
 {
-  "name": "ocomis-authentication",
+  "name": "ocomis-authentication-api",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -9,14 +9,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/DevRobert/ocomis-authentication.git"
+    "url": "git+https://github.com/DevRobert/ocomis-authentication-api.git"
   },
   "author": "",
   "license": "Private",
   "bugs": {
-    "url": "https://github.com/DevRobert/ocomis-authentication/issues"
+    "url": "https://github.com/DevRobert/ocomis-authentication-api/issues"
   },
-  "homepage": "https://github.com/DevRobert/ocomis-authentication#readme",
+  "homepage": "https://github.com/DevRobert/ocomis-authentication-api#readme",
   "dependencies": {
     "hapi": "^16.6.2"
   }
