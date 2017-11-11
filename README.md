@@ -1,1 +1,5 @@
-# ocomis-authentication
+# Ocomis Authentication
+
+## Tech Stack
+
+* NodeJS
