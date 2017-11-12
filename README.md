@@ -16,5 +16,5 @@
 
 ## Notes
 
-The connection to the User API has not established yet.
+The connection to the User API has not been established yet.
 Therefore, fake credentials are used.
