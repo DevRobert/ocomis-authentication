@@ -25,10 +25,10 @@ Therefore, fake credentials are used.
 
 `docker build -t blutner/ocomis-authentication-api:latest .`
 
-## Publish
+### Publish
 
 `docker push blutner/ocomis-authentication-api:latest`
 
 ### Run
 
-`docker run -i blutner/ocomis-authentication-api:latest -p 3004:3004`
+`docker run -p 3004:3004 blutner/ocomis-authentication-api:latest`
