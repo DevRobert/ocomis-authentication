@@ -18,3 +18,17 @@
 
 The connection to the User API has not been established yet.
 Therefore, fake credentials are used.
+
+## Docker
+
+### Build
+
+`docker build -t blutner/ocomis-authentication-api:latest .`
+
+## Publish
+
+`docker push blutner/ocomis-authentication-api:latest`
+
+### Run
+
+`docker run -i blutner/ocomis-authentication-api:latest -p 3004:3004`

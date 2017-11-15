@@ -2,7 +2,7 @@ const Hapi = require("hapi")
 const Routes = require("./lib/routes")
 
 const server = new Hapi.Server({
-    port: 3001
+    port: 3004
 })
 
 const provision = async () => {
