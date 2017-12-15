@@ -16,8 +16,10 @@ const provision = async () => {
 }
 
 provision().then(() => {
-    console.log('Ocomis authentication service started.')
+    console.log('Ocomis authentication api service started.')
     console.log('Server running at: ' + server.info.uri)
 }).catch((error) => {
     console.error(error)
 })
+
+module.exports = server // only for testing
