@@ -4,6 +4,8 @@ const { expect } = require('code')
 const Server = require('../../')
 const UserApi = require('../../lib/models/user_api')
 const Sinon = require('sinon')
+const JWT = require('jsonwebtoken')
+const Config = require('config')
 
 describe('AuthenticationController', () => {
     const validUsername = 'test-username'
@@ -32,10 +34,13 @@ describe('AuthenticationController', () => {
 
     describe('POST /authentication/api/sessions', () => {
         describe('if a valid username and password is given', () => {
-            it('should issue a JWT token', async () => {
+            let response
+            let decodedToken
+
+            beforeEach(async () => {
                 // Act
 
-                const response = await Server.inject({
+                response = await Server.inject({
                     method: 'POST',
                     url: '/authentication/api/sessions',
                     payload: {
@@ -44,11 +49,28 @@ describe('AuthenticationController', () => {
                     }
                 })
 
+                const tokenString = response.result.token
+                decodedToken = JWT.verify(tokenString, Config.get('tokenSecret'))
+            })
+
+            it('should issue a JWT token', async () => {
                 // Assert
 
                 expect(response.statusCode).equals(200)
                 expect(response.result).instanceOf(Object)
                 expect(response.result.token).not.to.be.empty()
+            })
+
+            it('should issue a JWT token containing the user id', () => {
+                // Assert
+
+                expect(decodedToken.userId).equals(validUserId)
+            })
+
+            it('should issue a JWT token containing the user name', () => {
+                // Assert
+
+                expect(decodedToken.userName).equals(validUsername)
             })
         })
 
