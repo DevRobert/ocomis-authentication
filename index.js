@@ -1,4 +1,5 @@
 const Hapi = require('hapi')
+const HapiPino = require('hapi-pino')
 const Routes = require('./lib/routes')
 
 const server = new Hapi.Server({
@@ -8,18 +9,15 @@ const server = new Hapi.Server({
 const provision = async () => {
     server.route(Routes)
 
-    server.events.on('log', (event, tags) => {
-        console.log(event)
-    })
-
+    await server.register(HapiPino)
     await server.start()
+
+    server.logger().info('Ocomis Authentication API Service started.')
+    server.logger().info(`Server running at: ${server.info.uri}`)
 }
 
-provision().then(() => {
-    console.log('Ocomis authentication api service started.')
-    console.log('Server running at: ' + server.info.uri)
-}).catch((error) => {
-    console.error(error)
+provision().catch((error) => {
+    server.logger().error(`Ocomis Authentication API Service start failed: ${error}`)
 })
 
 module.exports = server // only for testing
