@@ -1,7 +1,7 @@
 const Hapi = require('hapi')
-const pino = require('pino')
 const HapiPino = require('hapi-pino')
 const Routes = require('./lib/routes')
+const logger = require('./lib/logger')
 
 const server = new Hapi.Server({
     port: 3004
@@ -9,10 +9,6 @@ const server = new Hapi.Server({
 
 const provision = async () => {
     server.route(Routes)
-
-    const logger = pino().child({
-        service: 'ocomis-authentication-api'
-    })
 
     await server.register({
         plugin: HapiPino,
@@ -23,8 +19,8 @@ const provision = async () => {
 
     await server.start()
 
-    server.logger().info('Ocomis Authentication API Service started.')
-    server.logger().info(`Server running at: ${server.info.uri}`)
+    logger.info('Ocomis Authentication API Service started.')
+    logger.info(`Server running at: ${server.info.uri}`)
 }
 
 provision().catch((error) => {

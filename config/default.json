@@ -2,7 +2,8 @@
     "tokenSecret": "test",
     "apis": {
         "user": {
-            "uri": "http://localhost:3002/user/api"
+            // "uri": "http://localhost:3002/user/api"
+            "uri": "http://ocomis-user-api:3002/user/api"
         }
     }
 }
