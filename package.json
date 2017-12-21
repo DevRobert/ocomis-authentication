@@ -19,6 +19,7 @@
   },
   "homepage": "https://github.com/DevRobert/ocomis-authentication-api#readme",
   "dependencies": {
+    "boom": "^7.1.1",
     "config": "^1.28.1",
     "hapi": "^17.0.1",
     "hapi-pino": "^3.3.1",

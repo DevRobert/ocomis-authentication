@@ -90,8 +90,7 @@ describe('AuthenticationController', () => {
 
                 expect(response.statusCode).equals(400)
                 expect(response.result).instanceOf(Object)
-                expect(response.result.error).instanceOf(Object)
-                expect(response.result.error.message).equals('The username was not specified.')
+                expect(response.result.message).equals('The username was not specified.')
             })
         })
 
@@ -111,8 +110,7 @@ describe('AuthenticationController', () => {
 
                 expect(response.statusCode).equals(400)
                 expect(response.result).instanceOf(Object)
-                expect(response.result.error).instanceOf(Object)
-                expect(response.result.error.message).equals('The password was not specified.')
+                expect(response.result.message).equals('The password was not specified.')
             })
         })
 
@@ -133,8 +131,7 @@ describe('AuthenticationController', () => {
 
                 expect(response.statusCode).equals(400)
                 expect(response.result).instanceOf(Object)
-                expect(response.result.error).instanceOf(Object)
-                expect(response.result.error.message).equals(invalidCredentialsMessage)
+                expect(response.result.message).equals(invalidCredentialsMessage)
             })
         })
     })
