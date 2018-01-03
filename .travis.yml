@@ -1,0 +1,17 @@
+sudo: required
+
+language: node_js
+
+node_js:
+  - "8"
+
+services:
+  - docker
+
+script:
+  - docker login -u "$DOCKER_USERNAME" -p "$DOCKER_PASSWORD"
+  - ./Build.sh
+  - docker tag "blutner/ocomis-authentication-api:latest" "blutner/ocomis-authentication-api:$TRAVIS_COMMIT"
+  - docker push "blutner/ocomis-authentication-api:$TRAVIS_COMMIT"
+  - docker push "blutner/ocomis-authentication-api:latest"
+  - docker logout
