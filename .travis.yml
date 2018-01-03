@@ -10,7 +10,9 @@ services:
 
 script:
   - docker login -u "$DOCKER_USERNAME" -p "$DOCKER_PASSWORD"
-  - ./Build.sh
+  - npm test
+  - npm run eslint
+  - docker build -t blutner/ocomis-authentication-api:latest .
   - docker tag "blutner/ocomis-authentication-api:latest" "blutner/ocomis-authentication-api:$TRAVIS_COMMIT"
   - docker push "blutner/ocomis-authentication-api:$TRAVIS_COMMIT"
   - docker push "blutner/ocomis-authentication-api:latest"
