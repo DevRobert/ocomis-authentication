@@ -2,7 +2,7 @@
 
 ## Scope
 
-* Generates Java Web Tokens based on given credentials
+* Generates JSON Web Tokens based on given credentials
 
 ## Context
 
